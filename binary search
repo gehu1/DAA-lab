@@ -36,12 +36,6 @@ int main(){
  
     int i,j,n,e,arr[100],c,temp;
  
-    
- 
-    // Entering the Array
- 
-    
- 
     printf("Enter the iimit of Array : ");
  
     scanf("%d",&n);
@@ -54,12 +48,6 @@ int main(){
  
     }
  
-    
- 
-    // Printing the Array
- 
-    
- 
     printf("\nGiven Array is : \n");
  
     for(i=0;i<n;i++){
@@ -67,10 +55,6 @@ int main(){
         printf("%d ",arr[i]);
  
     }
- 
-    
- 
-    // Sorting
  
     for( i=0 ; i<n ; i++ ){
  
@@ -90,12 +74,6 @@ int main(){
  
     }
  
-    
- 
-    // Printing the Array after sort
- 
-    
- 
     printf("\nGiven Array after sorting : \n");
  
     for(i=0;i<n;i++){
@@ -104,36 +82,15 @@ int main(){
  
     }
  
-    
- 
-    // Input Element to Search
- 
-    
- 
     printf("\n\nEnter the Element to search : ");
  
     scanf("%d",&e);
- 
- 
-    
- 
-    // Binary Search with time calculation
- 
-    
  
     double ts = 0.0;
  
     clock_t tb = clock();
  
-    
- 
     c = b_srch(e,arr,0,n-1);
- 
-    
- 
-    // Printing Result 
- 
-    
  
     if(c == -1){
  
@@ -146,8 +103,6 @@ int main(){
         printf("\nElement Found at position : %d",c+1);
  
     }
- 
-    
  
     clock_t te = clock();
  
