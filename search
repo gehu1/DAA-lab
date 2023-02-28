@@ -1,0 +1,158 @@
+#include<stdio.h>                                
+#include<time.h>
+int b_srch(int e,int arr[],int low, int high){
+    if(low > high)
+ 
+        return -1;
+ 
+    else{
+ 
+        int mid = ( low + high )/2;
+ 
+        if( arr[mid] == e )
+ 
+            return mid;
+ 
+        
+ 
+        else if(arr[mid] < e)
+ 
+            return b_srch(e, arr, mid+1, high);
+ 
+    
+ 
+        else
+ 
+            return b_srch(e, arr, low, mid-1);
+ 
+    }
+ 
+}
+ 
+ 
+int main(){
+ 
+    
+ 
+    int i,j,n,e,arr[100],c,temp;
+ 
+    
+ 
+    // Entering the Array
+ 
+    
+ 
+    printf("Enter the iimit of Array : ");
+ 
+    scanf("%d",&n);
+ 
+    for(i=0;i<n;i++){
+ 
+        printf("Element : ");
+ 
+        scanf("%d",&arr[i]);
+ 
+    }
+ 
+    
+ 
+    // Printing the Array
+ 
+    
+ 
+    printf("\nGiven Array is : \n");
+ 
+    for(i=0;i<n;i++){
+ 
+        printf("%d ",arr[i]);
+ 
+    }
+ 
+    
+ 
+    // Sorting
+ 
+    for( i=0 ; i<n ; i++ ){
+ 
+        for( j=0 ; j<n-i-1 ; j++ ){
+ 
+            if(arr[j] > arr[j+1] ){
+ 
+                temp = arr[j];
+ 
+                arr[j] = arr[j+1];
+ 
+                arr[j+1] = temp;
+ 
+            }
+ 
+        }
+ 
+    }
+ 
+    
+ 
+    // Printing the Array after sort
+ 
+    
+ 
+    printf("\nGiven Array after sorting : \n");
+ 
+    for(i=0;i<n;i++){
+ 
+        printf("%d ",arr[i]);
+ 
+    }
+ 
+    
+ 
+    // Input Element to Search
+ 
+    
+ 
+    printf("\n\nEnter the Element to search : ");
+ 
+    scanf("%d",&e);
+ 
+ 
+    
+ 
+    // Binary Search with time calculation
+ 
+    
+ 
+    double ts = 0.0;
+ 
+    clock_t tb = clock();
+ 
+    
+ 
+    c = b_srch(e,arr,0,n-1);
+ 
+    
+ 
+    // Printing Result 
+ 
+    
+ 
+    if(c == -1){
+ 
+        printf("\nElement Not Found");
+ 
+    }
+ 
+    else{
+ 
+        printf("\nElement Found at position : %d",c+1);
+ 
+    }
+ 
+    
+ 
+    clock_t te = clock();
+ 
+    ts  = (double)(te - tb)/CLOCKS_PER_SEC;
+ 
+    printf("\n\nElapsed time = %f sec",ts);
+ 
+}
